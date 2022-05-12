@@ -1,0 +1,14 @@
+Encapsulation
+	Public, Private, Protected
+	getter setter methods
+Loops, if, switches
+Methods and local vars
+Inheritance
+Javadoc comments
+JUnit tests
+
+Model line 55 music added
+
+Adding new levels, problem with bricks not breaking on new level
+----brickcount not updating
+
