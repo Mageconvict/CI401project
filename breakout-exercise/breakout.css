@@ -1,0 +1,8 @@
+
+.label {
+    -fx-font: bold 20pt "courier new";
+}
+
+#Breakout {
+    -fx-background-color: gray;
+}
