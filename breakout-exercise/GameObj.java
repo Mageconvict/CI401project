@@ -11,23 +11,23 @@ import javafx.scene.paint.Color;
 public class GameObj
 {
     // state variables for a game object
-    /** States whether the game objec is visible */
-    public boolean visible  = true;     // Can be seen on the screen (change to false when the brick gets hit)
+    /** States whether the game object is visible */
+    protected boolean visible  = true;     // Can be seen on the screen (change to false when the brick gets hit)
     /** The top left X coordinate of the object */
-    public int topX   = 0;              // Position - top left corner X
-    public int topY   = 0;              // position - top left corner Y
+    protected int topX   = 0;              // Position - top left corner X
+    protected int topY   = 0;              // position - top left corner Y
     /** The width of the object */
-    public int width  = 0;              // Width of object
+    protected int width  = 0;              // Width of object
     /** The height of the object */
-    public int height = 0;              // Height of object
+    protected int height = 0;              // Height of object
     /** The colour of the object */
-    public Color colour;                // Colour of object
+    protected Color colour;                // Colour of object
     /** The X direction of the object (0 if stationary) */
-    public int   dirX   = 2;            // Direction X (1, 0 or -1)
+    protected int   dirX   = 1;            // Direction X (1, 0 or -1)
     /** The Y direction of the object (0 if stationary) */
-    public int   dirY   = 1;            // Direction Y (1, 0 or -1)
+    protected int   dirY   = 1;            // Direction Y (1, 0 or -1)
     
-    public int dur = 0;                 // 'Durability' of the object - no. of hits needed to break brick
+                     // 'Durability' of the object - no. of hits needed to break brick
 
     public GameObj()
     {
@@ -43,7 +43,7 @@ public class GameObj
         colour = c;
     }
     
-    public GameObj( int x, int y, int w, int h, Color c, int z )
+    /*public GameObj( int x, int y, int w, int h, Color c, int z )
     {
         topX   = x;       
         topY = y;
@@ -51,7 +51,7 @@ public class GameObj
         height = h; 
         colour = c;
         dur = z;
-    }
+    }*/
 
     // move in x axis
     public void moveX( int units )

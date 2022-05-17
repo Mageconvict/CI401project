@@ -14,6 +14,7 @@ import java.util.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.AudioClip;
+import java.net.URL;
 
 public class Model 
 {
@@ -28,7 +29,8 @@ public class Model
 
     public int BAT_MOVE       = 5;      // Distance to move bat on each keypress
     public int BALL_MOVE      = 3;      // Units to move the ball on each step
-
+    public int BAT_MOM       = 0;      // Tracks the ball's momentum
+    
     public int HIT_BRICK      = 50;     // Score for hitting a brick
     public int HIT_BOTTOM     = -200;   // Score (penalty) for hitting the bottom of the screen
 
@@ -54,18 +56,18 @@ public class Model
     public int height;                  // Height of game
     
     // Music/sounds
-    public String musicPath = "C:\\Users\\Student\\OneDrive - University of Brighton\\Module Documents\\CI401\\Semester 2\\Coursework\\sounds\\The-Army-of-Minotaur.mp3";
+    public String musicPath = "sounds/The-Army-of-Minotaur.mp3";
     public Media media = new Media(new File(musicPath).toURI().toString());
     public MediaPlayer mediaPlayer = new MediaPlayer(media);
     
-    public String ballfxPath = "C:\\Users\\Student\\OneDrive - University of Brighton\\Module Documents\\CI401\\Semester 2\\Coursework\\sounds\\ballbounce.wav";
+    public String ballfxPath = "sounds/ballbounce.wav";
     public AudioClip ballBounce = new AudioClip(new File(ballfxPath).toURI().toString());
 
     // CONSTRUCTOR - needs to know how big the window will be
     public Model( int w, int h )
     {
         Debug.trace("Model::<constructor>");  
-        width = w; 
+        width = w;
         height = h;
 
 
@@ -116,16 +118,13 @@ public class Model
             brick.getStyleClass().add("brick");
         }*/
         
-        
         brickCount = bricks.size();
         
-        //mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setAutoPlay(true);
         
         // *[1]******************************************************[1]*
         // * Fill in code to make the bricks array                      *
         // **************************************************************
-        
-        
     }
 
     
@@ -139,6 +138,10 @@ public class Model
             setGameState("running");
             while (!getGameState().equals("finished"))
             {
+                while (getGameState().equals("paused"))
+                {
+                    Thread.sleep( 20 );
+                }
                 updateGame();                        // update the game state
                 modelChanged();                      // Model changed - refresh screen
                 Thread.sleep( getFast() ? 10 : 20 ); // wait a few milliseconds
@@ -153,6 +156,7 @@ public class Model
     // updating the game - this happens about 50 times a second to give the impression of movement
     public synchronized void updateGame()
     {
+        BAT_MOM = 0;
         // move the ball one step (the ball knows which direction it is moving in)
         ball.moveX(BALL_MOVE);                      
         ball.moveY(BALL_MOVE);
@@ -352,6 +356,7 @@ public class Model
         int dist = direction * BAT_MOVE;    // Actual distance to move
         Debug.trace( "Model::moveBat: Move bat = " + dist );
         bat.moveX(dist);
+        BAT_MOM = 1;
     }
 }   
     

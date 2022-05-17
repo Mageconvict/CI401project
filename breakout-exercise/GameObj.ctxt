@@ -4,19 +4,18 @@ comment1.params=
 comment1.target=GameObj()
 comment2.params=x\ y\ w\ h\ c
 comment2.target=GameObj(int,\ int,\ int,\ int,\ javafx.scene.paint.Color)
-comment3.params=x\ y\ w\ h\ c\ z
-comment3.target=GameObj(int,\ int,\ int,\ int,\ javafx.scene.paint.Color,\ int)
+comment3.params=units
+comment3.target=void\ moveX(int)
+comment3.text=public\ GameObj(\ int\ x,\ int\ y,\ int\ w,\ int\ h,\ Color\ c,\ int\ z\ )\r\n\ \ \ \ {\r\n\ \ \ \ \ \ \ \ topX\ \ \ \=\ x;\ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ topY\ \=\ y;\r\n\ \ \ \ \ \ \ \ width\ \ \=\ w;\ \r\n\ \ \ \ \ \ \ \ height\ \=\ h;\ \r\n\ \ \ \ \ \ \ \ colour\ \=\ c;\r\n\ \ \ \ \ \ \ \ dur\ \=\ z;\r\n}
 comment4.params=units
-comment4.target=void\ moveX(int)
-comment5.params=units
-comment5.target=void\ moveY(int)
+comment4.target=void\ moveY(int)
+comment5.params=
+comment5.target=void\ changeDirectionX()
 comment6.params=
-comment6.target=void\ changeDirectionX()
-comment7.params=
-comment7.target=void\ changeDirectionY()
+comment6.target=void\ changeDirectionY()
+comment7.params=obj
+comment7.target=boolean\ hitByTop(GameObj)
+comment7.text=\ public\ boolean\ hitBy(\ GameObj\ obj\ )\r\n\ \ \ \ {\r\n\ \ \ \ \ \ \ \ boolean\ separate\ \=\ \ \r\n\ \ \ \ \ \ \ \ \ \ \ \ topX\ >\=\ obj.topX+obj.width\ \ \ \ \ ||\ \ \ \ //\ '||'\ means\ 'or'\r\n\ \ \ \ \ \ \ \ \ \ \ \ topX+width\ <\=\ obj.topX\ \ \ \ \ \ \ \ \ ||\r\n\ \ \ \ \ \ \ \ \ \ \ \ topY\ >\=\ obj.topY+obj.height\ \ \ \ ||\r\n\ \ \ \ \ \ \ \ \ \ \ \ topY+height\ <\=\ obj.topY\ \ \ \ \ \ \ \ ;\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ //\ use\ \!\ to\ return\ the\ opposite\ result\ -\ hitBy\ is\ 'not\ separate')\r\n\ \ \ \ \ \ \ \ return(\!\ separate);\ \ \r\n\ \ \ \ \ \ \ \ \ \ \r\n}
 comment8.params=obj
-comment8.target=boolean\ hitByTop(GameObj)
-comment8.text=\ public\ boolean\ hitBy(\ GameObj\ obj\ )\r\n\ \ \ \ {\r\n\ \ \ \ \ \ \ \ boolean\ separate\ \=\ \ \r\n\ \ \ \ \ \ \ \ \ \ \ \ topX\ >\=\ obj.topX+obj.width\ \ \ \ \ ||\ \ \ \ //\ '||'\ means\ 'or'\r\n\ \ \ \ \ \ \ \ \ \ \ \ topX+width\ <\=\ obj.topX\ \ \ \ \ \ \ \ \ ||\r\n\ \ \ \ \ \ \ \ \ \ \ \ topY\ >\=\ obj.topY+obj.height\ \ \ \ ||\r\n\ \ \ \ \ \ \ \ \ \ \ \ topY+height\ <\=\ obj.topY\ \ \ \ \ \ \ \ ;\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ //\ use\ \!\ to\ return\ the\ opposite\ result\ -\ hitBy\ is\ 'not\ separate')\r\n\ \ \ \ \ \ \ \ return(\!\ separate);\ \ \r\n\ \ \ \ \ \ \ \ \ \ \r\n}
-comment9.params=obj
-comment9.target=boolean\ hitBySide(GameObj)
-numComments=10
+comment8.target=boolean\ hitBySide(GameObj)
+numComments=9

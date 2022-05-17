@@ -12,3 +12,10 @@ Model line 55 music added
 Adding new levels, problem with bricks not breaking on new level
 ----brickcount not updating
 
+Thread not closing???
+Why sfx playing after close.
+
+Error not on fx application thread
+-----Trying to display pause text in while loop, bad idea.
+-----solved by adding in controller pause function
+

@@ -4,7 +4,7 @@ import javafx.scene.paint.Color;
 /** Class for creating brick game objects. This allows a durability to be set for bricks with corresponding colours, which change as the bricks take hits. */
 public class Brick extends GameObj
 {
-    
+    protected int dur = 0;
     /** Standard brick contructor with parameters for setting the position, width, height and colour. */
     public Brick( int x, int y, int w, int h, Color c )
     {
@@ -24,7 +24,7 @@ public class Brick extends GameObj
         height = h;
         dur = z;
         colour = Color.BLUE;
-        
+        // Sets the brick colour to match durability when initialising
         switch(dur) {
             case 0:
                 colour = Color.BLUE;

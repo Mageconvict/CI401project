@@ -1,8 +1,18 @@
 
 .label {
-    -fx-font: bold 20pt "courier new";
+    -fx-font: bold 20pt "lucida console";
 }
 
 #Breakout {
-    -fx-background-color: gray;
+    -fx-background-color: antiquewhite;
+}
+
+.Brick {
+    -fx-stroke: black;
+    -fx-stroke-width: 2;
+    -fx-stroke-line-cap: butt;
+}
+
+.Ball {
+    -fx-stroke: black;
 }
