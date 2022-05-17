@@ -54,6 +54,14 @@ public class Controller
         // stop the game
         model.setGameState("finished");
         break;
+      case P :
+        if (model.getGameState().equals("running")) {
+            model.setGameState("paused");
+            view.pauseText();
+        } else {
+            model.setGameState("running");
+        }
+        break;
     }
   }
 }

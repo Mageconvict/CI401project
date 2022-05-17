@@ -30,6 +30,7 @@ public class View implements EventHandler<KeyEvent>
     public Pane pane;       // basic layout pane
     // public Canvas canvas;   // canvas to draw game on
     public Label infoText;  // info at top of screen
+    public Label pauseText;
 
     // The other parts of the model-view-controller setup
     public Controller controller;
@@ -74,6 +75,11 @@ public class View implements EventHandler<KeyEvent>
         infoText = new Label("BreakOut: Score = " + score);
         infoText.setTranslateX(50);  // these commands set the position of the text box
         infoText.setTranslateY(10);  // (measuring from the top left corner)
+        
+        
+        pauseText = new Label("Game is paused");
+        pauseText.setTranslateY(400);
+        pauseText.setTranslateX(250);
         
         // Make a new JavaFX Scene, containing the complete GUI
         Scene scene = new Scene(pane, width, height);   
@@ -129,9 +135,15 @@ public class View implements EventHandler<KeyEvent>
             
         }
     }
+    
+    public void pauseText()
+    {
+         pane.getChildren().add(pauseText);
+    }
 
     // Display a game object - create a Rectangle object (if necessary) and
     // add it to the Pane in the right position
+    
     public void displayGameObj( GameObj go )
     {
         Rectangle s;
@@ -154,6 +166,9 @@ public class View implements EventHandler<KeyEvent>
         // set the position of rectangle
         s.setX(go.topX);
         s.setY(go.topY);
+        
+        String className = go.getClass().getSimpleName();
+        s.getStyleClass().add(className);
         // and add it to the Pane
         pane.getChildren().add(s);
     }
